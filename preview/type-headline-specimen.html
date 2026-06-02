@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ONESecure — Headline specimen</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  .card {
+    padding: 36px 32px;
+    background: #211941;
+    color: #fff;
+    position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: ""; position: absolute; inset: -40% -20% auto auto;
+    width: 540px; height: 540px; border-radius: 50%;
+    background: radial-gradient(circle, #5540A7 0%, transparent 70%);
+    filter: blur(40px); pointer-events: none;
+  }
+  .lede {
+    font-family: var(--os-font-display);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.15;
+    color: #fff;
+    letter-spacing: -0.005em;
+    position: relative;
+  }
+  .lede .accent { color: #BDFCE3; }
+  .meta {
+    display: flex; gap: 16px;
+    font-family: var(--os-font);
+    font-size: 10px; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    position: relative;
+  }
+</style>
+</head>
+<body>
+  <div class="card is-vertical">
+    <div class="lede">Segurança como sistema.<br>Gestão como <span class="accent">padrão.</span></div>
+    <div class="meta"><span>Lexend Bold</span><span>Sentence case</span><span>End-period rhythm</span></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ONESecure — Chart · Donut</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  .card { padding: 22px 24px; background: #fff; }
+  .row { display: flex; align-items: center; gap: 20px; }
+  .donut-wrap {
+    position: relative; flex-shrink: 0;
+    width: 160px; height: 160px;
+  }
+  .donut-wrap svg { width: 100%; height: 100%; }
+  .center {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .center .v { font-size: 22px; font-weight: 700; color: #211941; line-height: 1; }
+  .center .l { font-size: 9px; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(33,25,65,0.55); margin-top: 4px; }
+  .legend { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .legend li { display: flex; align-items: center; gap: 10px; font-size: 12px; color: #211941; font-family: var(--os-font); }
+  .legend .sw { width: 12px; height: 12px; border-radius: 4px; flex-shrink: 0; }
+  .legend .pct { margin-left: auto; font-family: ui-monospace, Menlo, monospace; color: rgba(33,25,65,0.6); font-size: 12px; }
+  .ml { font-size: 10px; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(33,25,65,0.55); margin-bottom: 14px; }
+</style>
+</head>
+<body>
+  <div class="card is-vertical">
+    <div class="ml">Clientes por setor</div>
+    <div class="row">
+      <div class="donut-wrap">
+        <svg viewBox="0 0 200 200">
+          <path d="M 100.00 22.00 A 78 78 0 0 1 153.39 156.86 L 135.60 137.91 A 52 52 0 0 0 100.00 48.00 Z" fill="#0132A5"/>
+          <path d="M 153.39 156.86 A 78 78 0 0 1 36.90 145.85 L 57.93 130.56 A 52 52 0 0 0 135.60 137.91 Z" fill="#3280EF"/>
+          <path d="M 36.90 145.85 A 78 78 0 0 1 31.65 62.42 L 54.43 74.95 A 52 52 0 0 0 57.93 130.56 Z" fill="#5540A7"/>
+          <path d="M 31.65 62.42 A 78 78 0 0 1 75.90 25.82 L 83.93 50.55 A 52 52 0 0 0 54.43 74.95 Z" fill="#A9C3FF"/>
+          <path d="M 75.90 25.82 A 78 78 0 0 1 100.00 22.00 L 100.00 48.00 A 52 52 0 0 0 83.93 50.55 Z" fill="#211941"/>
+        </svg>
+        <div class="center">
+          <div class="v">5</div>
+          <div class="l">setores</div>
+        </div>
+      </div>
+      <ul class="legend">
+        <li><span class="sw" style="background:#0132A5"></span>Indústria<span class="pct">38%</span></li>
+        <li><span class="sw" style="background:#3280EF"></span>Financeiro<span class="pct">27%</span></li>
+        <li><span class="sw" style="background:#5540A7"></span>Varejo<span class="pct">18%</span></li>
+        <li><span class="sw" style="background:#A9C3FF"></span>Saúde<span class="pct">12%</span></li>
+        <li><span class="sw" style="background:#211941"></span>Outros<span class="pct">5%</span></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

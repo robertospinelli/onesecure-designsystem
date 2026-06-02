@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ONESecure — Buttons</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  .card { padding: 26px 24px; background: #E6EDFF; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 14px 22px; border: none; border-radius: 16px;
+    font-family: var(--os-font); font-size: 13px;
+    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 400;
+    cursor: pointer; transition: 160ms;
+  }
+  .btn.primary { background: #0132A5; color: #fff; }
+  .btn.primary:hover { background: #002A8C; }
+  .btn.dark    { background: #211941; color: #fff; }
+  .btn.ghost   { background: transparent; color: #0132A5; box-shadow: inset 0 0 0 1.5px #0132A5; }
+  .btn.glass   { background: rgba(255,255,255,0.55); backdrop-filter: blur(8px); color: #211941; box-shadow: inset 0 0 0 1px rgba(33,25,65,0.10); }
+  .btn .ar { width: 8px; height: 8px; border-top: 1.5px solid currentColor; border-right: 1.5px solid currentColor; transform: rotate(45deg); margin-left: 4px; }
+  .row { gap: 12px; flex-wrap: wrap; }
+  .label-row {
+    font-family: var(--os-font);
+    font-size: 10px; letter-spacing: 0.10em; text-transform: uppercase;
+    color: rgba(33,25,65,0.5); margin-bottom: 8px;
+  }
+</style>
+</head>
+<body>
+  <div class="card is-vertical">
+    <div>
+      <div class="label-row">Primary actions</div>
+      <div class="row">
+        <button class="btn primary">Call to action<span class="ar"></span></button>
+        <button class="btn dark">Saiba mais</button>
+      </div>
+    </div>
+    <div>
+      <div class="label-row">Secondary actions</div>
+      <div class="row">
+        <button class="btn ghost">Cancelar</button>
+        <button class="btn glass">Ver no portal</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+/* Shared CSS for ONESecure design-system preview cards.
+ * Each card is a stand-alone HTML file (700 × ~150-400 px) sized for
+ * the Design System tab. Cards are skinned light, with no titles —
+ * the asset name renders outside the card.
+ */
+
+@import url("../colors_and_type.css");
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-family: var(--os-font);
+  color: var(--os-fg);
+}
+
+.card {
+  width: 700px;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.card.is-vertical { flex-direction: column; }
+
+.row { display: flex; gap: 12px; align-items: center; }
+.col { display: flex; flex-direction: column; gap: 12px; }
+.between { justify-content: space-between; }
+.wrap { flex-wrap: wrap; }
+
+.label {
+  font-family: var(--os-font);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(33, 25, 65, 0.6);
+}
+
+.value {
+  font-family: var(--os-font);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--os-primary-dark);
+}
+
+.mono {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0;
+  color: var(--os-primary-dark);
+}

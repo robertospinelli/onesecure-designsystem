@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ONESecure — Support palette</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; width: 100%; }
+  .sw {
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    padding: 14px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(33,25,65,0.08);
+  }
+  .sw .name {
+    font-family: var(--os-font); font-size: 12px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--os-primary-dark);
+  }
+  .sw .role {
+    font-family: var(--os-font); font-size: 11px;
+    color: rgba(33,25,65,0.65); margin-top: 2px;
+  }
+  .sw .hex { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: var(--os-primary-dark); }
+  .note {
+    font-family: var(--os-font); font-size: 11px; font-style: italic;
+    color: rgba(33,25,65,0.55); padding: 0 4px;
+  }
+</style>
+</head>
+<body>
+  <div class="card is-vertical">
+    <div class="grid">
+      <div class="sw" style="background:#BDFCE3">
+        <div><div class="name">Mint</div><div class="role">Confirmation</div></div>
+        <div class="hex">#BDFCE3</div>
+      </div>
+      <div class="sw" style="background:#934DEC">
+        <div><div class="name" style="color:#fff">Violet</div><div class="role" style="color:rgba(255,255,255,0.75)">Comunidade / Suri</div></div>
+        <div class="hex" style="color:#fff">#934DEC</div>
+      </div>
+      <div class="sw" style="background:#EEF274">
+        <div><div class="name">Yellow</div><div class="role">Eventos</div></div>
+        <div class="hex">#EEF274</div>
+      </div>
+    </div>
+    <div class="note">Reserved for the experiential line. Never mix two support colors in the same layout.</div>
+  </div>
+</body>
+</html>

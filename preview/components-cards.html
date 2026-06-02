@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ONESecure — Cards</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  .card { padding: 24px; background: #E6EDFF; gap: 14px; }
+  .surface {
+    flex: 1;
+    border-radius: 24px;
+    padding: 18px;
+    min-height: 150px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    font-family: var(--os-font);
+  }
+  .s-white { background: #fff; color: #211941; box-shadow: 0 8px 24px rgba(33,25,65,0.10); }
+  .s-tint  { background: #EAF0FF; color: #211941; }
+  .s-glass { background: rgba(255,255,255,0.40); backdrop-filter: blur(6px); color: #211941; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6); }
+  .s-blue  { background: #0132A5; color: #fff; }
+  .s-indigo{ background: #211941; color: #fff; }
+  .surface .h { font-weight: 700; font-size: 14px; line-height: 1.3; }
+  .surface .b { font-size: 11px; opacity: 0.7; font-weight: 300; line-height: 1.4; }
+  .surface .tag { font-size: 9px; letter-spacing: 0.10em; text-transform: uppercase; opacity: 0.7; }
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; width: 100%; }
+</style>
+</head>
+<body>
+  <div class="card is-vertical">
+    <div class="three">
+      <div class="surface s-white">
+        <div class="tag">Padrão · 32 px</div>
+        <div><div class="h">Card branco</div><div class="b">No light page</div></div>
+      </div>
+      <div class="surface s-tint">
+        <div class="tag">Tinted</div>
+        <div><div class="h">Card 100</div><div class="b">Light tint</div></div>
+      </div>
+      <div class="surface s-blue">
+        <div class="tag">Royal</div>
+        <div><div class="h">Cover card</div><div class="b">Slide hero</div></div>
+      </div>
+    </div>
+    <div class="three">
+      <div class="surface s-glass" style="background-image: linear-gradient(135deg, #0132A5, #002A8C); color: #fff;">
+        <div class="tag" style="opacity:0.9">Glass · on royal</div>
+        <div style="background:rgba(255,255,255,0.40);border-radius:14px;padding:8px 10px;color:#211941">
+          <div class="h">Rgb(255,255,255,.40)</div>
+        </div>
+      </div>
+      <div class="surface s-indigo" style="grid-column: span 2">
+        <div class="tag">Section divider · Indigo cover</div>
+        <div style="display:flex;align-items:flex-end;gap:10px">
+          <div class="h" style="font-size:18px">Capítulo 03 — Cores</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

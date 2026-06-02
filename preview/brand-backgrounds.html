@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ONESecure — Backgrounds</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  .card { padding: 18px; background: #fff; gap: 14px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; width: 100%; }
+  .bg {
+    aspect-ratio: 4/3; border-radius: 18px; overflow: hidden; position: relative;
+    display: flex; align-items: flex-end; padding: 12px;
+    font-family: var(--os-font); font-size: 10px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .bg .name { position: relative; z-index: 2; color: #fff; }
+  .bg.light .name { color: #211941; }
+
+  .bg.light {
+    background: #E6EDFF;
+  }
+  .bg.light::before, .bg.light::after {
+    content: ""; position: absolute; border-radius: 50%;
+    background: rgba(255,255,255,0.85); filter: blur(20px);
+  }
+  .bg.light::before { width: 200px; height: 200px; top: -100px; right: -60px; }
+  .bg.light::after  { width: 160px; height: 160px; bottom: -80px; left: -40px; }
+
+  .bg.royal {
+    background: #0132A5;
+    background-image: url("../assets/textures/world-halftone.png");
+    background-size: cover;
+    background-blend-mode: screen;
+  }
+
+  .bg.indigo {
+    background:
+      radial-gradient(circle at 80% 20%, rgba(85,64,167,0.85), transparent 60%),
+      #211941;
+  }
+  .bg.indigo::after {
+    content: ""; position: absolute; inset: 0;
+    background-image: url("../assets/textures/grain-overlay-2.png");
+    background-size: cover; mix-blend-mode: overlay; opacity: 0.5;
+  }
+</style>
+</head>
+<body>
+  <div class="card is-vertical">
+    <div class="grid">
+      <div class="bg light"><div class="name">Light · padrão</div></div>
+      <div class="bg royal"><div class="name">Royal · halftone</div></div>
+      <div class="bg indigo"><div class="name">Indigo · grain</div></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ONESecure — Sistema de aplicações</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  .card { padding: 22px; background: #E6EDFF; gap: 12px; }
+  .grid { display: grid; grid-template-columns: 1.4fr 1fr 0.9fr; gap: 12px; width: 100%; }
+  .tile {
+    border-radius: 16px;
+    padding: 18px 16px;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 110px;
+  }
+  .tile.light { background: #fff; }
+  .tile.dark  {
+    background: #0132A5;
+    background-image: url("../assets/textures/world-halftone.png");
+    background-size: cover; background-blend-mode: screen;
+  }
+  .tile img { width: 100%; max-width: 180px; height: auto; display: block; }
+  .tile.principal img { max-width: 70px; }
+  .label-row {
+    display: flex; justify-content: space-around;
+    font-family: var(--os-font); font-size: 9px;
+    letter-spacing: 0.10em; text-transform: uppercase;
+    color: rgba(33,25,65,0.55);
+  }
+</style>
+</head>
+<body>
+  <div class="card is-vertical">
+    <div class="grid">
+      <div class="tile light"><img src="../assets/logo/onesecure-horizontal.png" alt="horizontal"></div>
+      <div class="tile dark"><img src="../assets/logo/onesecure-horizontal-negative.png" alt="horizontal negativa"></div>
+      <div class="tile light principal"><img src="../assets/logo/onesecure-principal.png" alt="principal vertical"></div>
+    </div>
+    <div class="label-row">
+      <span>Horizontal · positiva</span>
+      <span>Horizontal · negativa</span>
+      <span>Principal · vertical</span>
+    </div>
+  </div>
+</body>
+</html>

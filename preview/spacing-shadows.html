@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ONESecure — Shadows</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  .card { padding: 32px 24px; background: #E6EDFF; gap: 18px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; width: 100%; }
+  .tile {
+    aspect-ratio: 4/3; border-radius: 18px; background: #fff;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 12px; font-family: var(--os-font);
+  }
+  .tile .n {
+    font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(33,25,65,0.6);
+  }
+  .tile .h { font-family: ui-monospace, Menlo, monospace; font-size: 10px; color: #211941; }
+  .pill {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.20);
+  }
+  .cardlike {
+    box-shadow: 0 8px 24px rgba(33,25,65,0.12);
+  }
+  .deep {
+    box-shadow: 0 16px 48px rgba(33,25,65,0.20);
+  }
+</style>
+</head>
+<body>
+  <div class="card is-vertical">
+    <div class="grid">
+      <div class="tile pill"><div class="n">Pill</div><div class="h">0 4 8 / 0.20</div></div>
+      <div class="tile cardlike"><div class="n">Card</div><div class="h">0 8 24 / 0.12</div></div>
+      <div class="tile deep"><div class="n">Deep</div><div class="h">0 16 48 / 0.20</div></div>
+    </div>
+  </div>
+</body>
+</html>

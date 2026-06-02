@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ONESecure — Blue scale</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  .scale { display: flex; width: 100%; border-radius: 14px; overflow: hidden; height: 96px; box-shadow: 0 4px 12px rgba(33,25,65,0.08); }
+  .step { flex: 1; padding: 10px; color: #fff; display: flex; flex-direction: column; justify-content: space-between; font-family: var(--os-font); }
+  .step .n { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; opacity: 0.92; }
+  .step .h { font-family: ui-monospace, Menlo, monospace; font-size: 11px; opacity: 0.95; }
+  .step.light { color: #211941; }
+</style>
+</head>
+<body>
+  <div class="card is-vertical">
+    <div class="scale">
+      <div class="step" style="background:#002A8C"><div class="n">900</div><div class="h">#002A8C</div></div>
+      <div class="step" style="background:#0132A5"><div class="n">700</div><div class="h">#0132A5</div></div>
+      <div class="step" style="background:#2F6DFF"><div class="n">600</div><div class="h">#2F6DFF</div></div>
+      <div class="step" style="background:#3280EF"><div class="n">500</div><div class="h">#3280EF</div></div>
+      <div class="step light" style="background:#A9C3FF"><div class="n">300</div><div class="h">#A9C3FF</div></div>
+      <div class="step light" style="background:#EAF0FF"><div class="n">100</div><div class="h">#EAF0FF</div></div>
+      <div class="step light" style="background:#E6EDFF"><div class="n">050</div><div class="h">#E6EDFF</div></div>
+    </div>
+  </div>
+</body>
+</html>

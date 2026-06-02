@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ONESecure — Símbolo (escudo)</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  .card {
+    padding: 28px 36px;
+    background: #E6EDFF;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .tile {
+    aspect-ratio: 1/1;
+    border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 14px;
+  }
+  .tile.light { background: #fff; box-shadow: 0 6px 20px rgba(33,25,65,0.08); }
+  .tile.dark  {
+    background: #211941;
+    position: relative; overflow: hidden;
+  }
+  .tile.dark::after {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 70% 25%, rgba(85,64,167,0.7), transparent 60%);
+  }
+  .tile img { width: 80%; height: auto; position: relative; z-index: 1; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="tile light"><img src="../assets/logo/onesecure-mark.png" alt="símbolo"></div>
+    <div class="tile dark"><img src="../assets/logo/onesecure-mark.png" alt="símbolo"></div>
+  </div>
+</body>
+</html>

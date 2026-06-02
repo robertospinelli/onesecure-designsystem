@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ONESecure — Display type</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  .card { padding: 32px 28px; }
+  .display {
+    font-family: var(--os-font-display);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--os-primary-dark);
+    font-size: 96px;
+    letter-spacing: -0.02em;
+  }
+  .meta {
+    display: flex; gap: 14px; align-items: baseline;
+    font-family: var(--os-font); font-size: 11px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(33,25,65,0.6);
+  }
+  .meta b { color: var(--os-primary); font-weight: 500; }
+</style>
+</head>
+<body>
+  <div class="card is-vertical">
+    <div class="display">Aa</div>
+    <div class="meta">
+      <span><b>Lexend</b></span>
+      <span>700 · Bold</span>
+      <span>Display · 96 / 80 / 64 px</span>
+    </div>
+  </div>
+</body>
+</html>

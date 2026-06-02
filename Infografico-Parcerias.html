@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ONESecure — Convite a parceiros</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  /* ─────────────────────────────────────────────────────────────
+   * Infográfico para email — largura fixa 640 px (compatível
+   * com clientes de email: Gmail, Outlook, Apple Mail, mobile).
+   * Estrutura modular, cada bloco é independente — pode ser
+   * recortado e re-ordenado.
+   * Quando exportado, recomendo enviar como:
+   *  · email HTML (este arquivo, com estilos inline-zados), OU
+   *  · imagem única PNG, anexada + breve corpo de texto.
+   * ───────────────────────────────────────────────────────────── */
+
+  html, body { margin: 0; padding: 0; background: #DDE3F2; }
+  body {
+    font-family: var(--os-font);
+    color: var(--os-fg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    padding: 32px 0;
+  }
+
+  .email {
+    width: 640px;
+    margin: 0 auto;
+    background: #E6EDFF;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(33, 25, 65, 0.16);
+  }
+
+  /* ─── shared chrome ─── */
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 7px 14px;
+    border-radius: 10px;
+    background: rgba(1, 50, 165, 0.10);
+    color: var(--os-primary);
+    font-size: 10px; line-height: 1.5;
+    letter-spacing: 0.10em; text-transform: uppercase;
+    font-weight: 400;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.20);
+  }
+  .pill.on-dark { background: rgba(255,255,255,0.14); color: #fff; }
+  .pill.mint { background: #BDFCE3; color: #002A8C; }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px; line-height: 1.5;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(33, 25, 65, 0.55);
+    font-weight: 400;
+  }
+  .on-dark .tag, .tag.on-dark { color: rgba(255,255,255,0.6); }
+
+  h1, h2, h3, p { margin: 0; }
+
+  .display {
+    font-family: var(--os-font);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--os-primary-dark);
+  }
+  .h2 {
+    font-size: 26px; font-weight: 700; line-height: 1.2;
+    color: var(--os-primary-dark); letter-spacing: -0.005em;
+  }
+  .h3 {
+    font-size: 18px; font-weight: 700; line-height: 1.3;
+    color: var(--os-primary-dark);
+  }
+  .lede {
+    font-size: 16px; font-weight: 300; line-height: 1.55;
+    color: rgba(33, 25, 65, 0.75);
+  }
+  .body {
+    font-size: 14px; font-weight: 300; line-height: 1.6;
+    color: rgba(33, 25, 65, 0.8);
+  }
+  .body strong { font-weight: 600; color: var(--os-primary-dark); }
+
+  /* ─── BLOCK · header ─── */
+  .block-head {
+    padding: 24px 32px 18px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: #E6EDFF;
+  }
+  .block-head img.wm { height: 42px; display: block; }
+
+  /* ─── BLOCK · hero royal ─── */
+  .block-hero {
+    background: #0132A5;
+    background-image: url("assets/textures/world-halftone.png");
+    background-size: cover; background-position: center;
+    background-blend-mode: screen;
+    padding: 48px 36px 56px;
+    color: #fff;
+    position: relative;
+  }
+  .block-hero .pill { margin-bottom: 28px; }
+  .block-hero h1 {
+    font-size: 38px; line-height: 1.08;
+    font-weight: 700; letter-spacing: -0.01em;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .block-hero h1 .accent { color: #BDFCE3; }
+  .block-hero p {
+    font-size: 15px; line-height: 1.55;
+    font-weight: 300;
+    color: rgba(255,255,255,0.85);
+    max-width: 480px;
+  }
+  .hero-meta {
+    margin-top: 32px;
+    display: flex; gap: 28px;
+    font-size: 10px; letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+  }
+  .hero-meta b { color: #fff; font-weight: 500; display: block; font-size: 12px; margin-top: 4px; letter-spacing: 0.08em; }
+
+  /* ─── BLOCK · charts ─── */
+  .block-charts {
+    padding: 48px 36px 36px;
+    background: #E6EDFF;
+    position: relative; overflow: hidden;
+  }
+  .block-charts::before {
+    content: ""; position: absolute;
+    width: 460px; height: 460px; border-radius: 50%;
+    background: #fff; opacity: 0.5; filter: blur(60px);
+    top: -240px; left: -180px;
+  }
+  .block-charts > * { position: relative; }
+  .block-charts .tag { margin-bottom: 12px; }
+  .block-charts .h2 { margin-bottom: 28px; max-width: 460px; }
+  .chart-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 22px 24px;
+    box-shadow: 0 6px 20px rgba(33, 25, 65, 0.06);
+    margin-bottom: 14px;
+  }
+  .chart-card:last-of-type { margin-bottom: 0; }
+  .chart-meta {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .chart-meta .ml {
+    font-size: 10px; letter-spacing: 0.10em; text-transform: uppercase;
+    color: rgba(33,25,65,0.55); font-weight: 500;
+  }
+  .chart-meta .mv {
+    font-size: 22px; font-weight: 700; line-height: 1;
+    color: var(--os-primary-dark); margin-top: 4px;
+    font-family: var(--os-font);
+  }
+  .chart-meta .md {
+    display: inline-block; margin-left: 8px;
+    font-size: 11px; font-weight: 500; color: #0132A5;
+    background: rgba(50, 128, 239, 0.14);
+    padding: 3px 8px; border-radius: 6px;
+    vertical-align: middle;
+    letter-spacing: 0;
+  }
+  .chart-axis {
+    display: flex; justify-content: space-between;
+    font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: rgba(33,25,65,0.5); margin-top: 8px;
+  }
+  .chart-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  }
+  .chart-row .chart-card { margin-bottom: 0; }
+  .donut-wrap {
+    display: flex; align-items: center; justify-content: center;
+    height: 160px;
+    position: relative;
+  }
+  .donut-wrap svg { width: 160px; height: 160px; }
+  .donut-wrap .center-label {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .donut-wrap .center-label .v {
+    font-size: 20px; font-weight: 700; color: var(--os-primary-dark);
+    line-height: 1;
+  }
+  .donut-wrap .center-label .l {
+    font-size: 8px; letter-spacing: 0.10em; text-transform: uppercase;
+    color: rgba(33,25,65,0.55); margin-top: 4px;
+  }
+  .legend {
+    list-style: none; padding: 0; margin: 12px 0 0;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .legend li {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 10px; color: var(--os-primary-dark);
+  }
+  .legend .sw { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+  .legend .pct {
+    margin-left: auto; font-family: ui-monospace, Menlo, monospace;
+    color: rgba(33,25,65,0.65);
+  }
+
+  /* ─── BLOCK · open paragraph ─── */
+  .block-intro {
+    padding: 44px 36px 36px;
+    background: #E6EDFF;
+    position: relative; overflow: hidden;
+  }
+  .block-intro::before {
+    content: ""; position: absolute;
+    width: 520px; height: 520px; border-radius: 50%;
+    background: #fff; opacity: 0.55; filter: blur(60px);
+    top: -260px; right: -200px;
+  }
+  .block-intro > * { position: relative; }
+  .block-intro .tag { margin-bottom: 16px; }
+  .block-intro .display { margin-bottom: 18px; max-width: 540px; }
+  .block-intro .lede { max-width: 540px; }
+
+  /* ─── BLOCK · three pillars ─── */
+  .block-pillars {
+    padding: 8px 36px 44px;
+    background: #E6EDFF;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .pillar {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    display: flex; gap: 20px;
+    align-items: flex-start;
+    box-shadow: 0 6px 20px rgba(33, 25, 65, 0.06);
+  }
+  .pillar .num {
+    flex-shrink: 0; width: 44px; height: 44px;
+    border-radius: 12px;
+    background: #0132A5;
+    color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700;
+    letter-spacing: 0;
+  }
+  .pillar .body-col { flex: 1; min-width: 0; }
+  .pillar .lede { margin-top: 6px; font-size: 13px; }
+  .pillar .stripe {
+    width: 4px; align-self: stretch; border-radius: 4px;
+    background: linear-gradient(180deg, #0132A5, #3280EF);
+  }
+
+  /* ─── BLOCK · architecture two-line ─── */
+  .block-arch {
+    padding: 48px 36px;
+    background:
+      radial-gradient(circle at 90% 10%, rgba(85,64,167,0.65), transparent 55%),
+      #211941;
+    color: #fff;
+    position: relative; overflow: hidden;
+  }
+  .block-arch::after {
+    content: ""; position: absolute; inset: 0;
+    background-image: url("assets/textures/grain-overlay-2.png");
+    background-size: cover; mix-blend-mode: overlay; opacity: 0.35;
+    pointer-events: none;
+  }
+  .block-arch > * { position: relative; z-index: 1; }
+  .block-arch .tag { color: rgba(255,255,255,0.55); margin-bottom: 12px; }
+  .block-arch .h2 { color: #fff; margin-bottom: 28px; max-width: 460px; }
+  .arch-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .arch-card {
+    padding: 22px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(169,195,255,0.18);
+  }
+  .arch-card .label {
+    font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(189, 252, 227, 0.9); margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .arch-card .name {
+    font-size: 18px; font-weight: 700; line-height: 1.2;
+    color: #fff; margin-bottom: 8px;
+  }
+  .arch-card .desc {
+    font-size: 12px; line-height: 1.5;
+    color: rgba(255,255,255,0.7); font-weight: 300;
+    margin-bottom: 14px;
+  }
+  .submark-row {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .submark {
+    font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 4px 9px; border-radius: 999px;
+    background: rgba(255,255,255,0.1); color: #fff;
+    font-weight: 400;
+  }
+  .arch-card.exp .label { color: #EEF274; }
+
+  /* ─── BLOCK · why partner ─── */
+  .block-why {
+    padding: 48px 36px 36px;
+    background: #E6EDFF;
+    position: relative; overflow: hidden;
+  }
+  .block-why::before {
+    content: ""; position: absolute;
+    width: 520px; height: 520px; border-radius: 50%;
+    background: #fff; opacity: 0.5; filter: blur(70px);
+    bottom: -300px; left: -240px;
+  }
+  .block-why > * { position: relative; }
+  .block-why .tag { margin-bottom: 12px; }
+  .block-why .h2 { margin-bottom: 28px; max-width: 460px; }
+  .principle {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 14px 0;
+    border-top: 1px solid rgba(33, 25, 65, 0.08);
+  }
+  .principle:first-of-type { border-top: 0; }
+  .principle .check {
+    flex-shrink: 0; width: 28px; height: 28px; border-radius: 999px;
+    background: #0132A5;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .principle .check svg { width: 14px; height: 14px; color: #fff; }
+  .principle .t1 {
+    font-size: 15px; font-weight: 700; line-height: 1.35;
+    color: var(--os-primary-dark);
+  }
+  .principle .t2 {
+    font-size: 13px; line-height: 1.55; font-weight: 300;
+    color: rgba(33, 25, 65, 0.7);
+    margin-top: 2px;
+  }
+
+  /* ─── BLOCK · CTA royal ─── */
+  .block-cta {
+    background: #0132A5;
+    color: #fff;
+    padding: 48px 36px;
+    text-align: left;
+    position: relative; overflow: hidden;
+  }
+  .block-cta::before {
+    content: ""; position: absolute; inset: 0;
+    background: url("assets/textures/world-halftone.png") center/cover;
+    mix-blend-mode: screen; opacity: 0.30;
+  }
+  .block-cta > * { position: relative; }
+  .block-cta .h2 {
+    color: #fff; font-size: 28px; line-height: 1.15;
+    max-width: 460px; margin-bottom: 18px;
+  }
+  .block-cta p {
+    font-size: 14px; line-height: 1.55; font-weight: 300;
+    color: rgba(255,255,255,0.85);
+    max-width: 460px;
+    margin-bottom: 28px;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 22px;
+    border-radius: 14px;
+    background: #fff;
+    color: #0132A5;
+    text-decoration: none;
+    font-size: 12px; letter-spacing: 0.10em;
+    text-transform: uppercase; font-weight: 500;
+  }
+  .btn .arrow {
+    width: 8px; height: 8px;
+    border-top: 1.5px solid currentColor;
+    border-right: 1.5px solid currentColor;
+    transform: rotate(45deg);
+  }
+  .btn-secondary {
+    color: #fff;
+    background: transparent;
+    box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.55);
+    margin-left: 8px;
+  }
+
+  /* ─── BLOCK · footer ─── */
+  .block-foot {
+    padding: 32px 36px 36px;
+    background: #211941;
+    color: #ffffff;
+    font-size: 9px; line-height: 1.55;
+  }
+  .block-foot p {
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+  .foot-row {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 22px;
+  }
+  .foot-row img { height: 36px; display: block; }
+  .foot-row .url {
+    font-size: 8px; letter-spacing: 0.10em; text-transform: uppercase;
+    color: #ffffff;
+  }
+  .foot-bottom {
+    font-size: 8px; color: #ffffff;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    padding-top: 18px;
+    display: flex; justify-content: space-between;
+  }
+
+  /* ── viewport / preview frame chrome ── */
+  .meta-note {
+    width: 640px; margin: 18px auto 0;
+    font-family: var(--os-font); font-size: 11px;
+    color: rgba(33,25,65,0.55);
+    text-align: center;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="email">
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║ 1.  CABEÇALHO — pill da campanha + wordmark              ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <div class="block-head">
+    <img class="wm" src="assets/logo/onesecure-horizontal.png" alt="ONESecure">
+    <span class="pill">Programa de Parcerias · 2026</span>
+  </div>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║ 2.  HERO — claim institucional sobre royal blue          ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <div class="block-hero">
+    <span class="pill on-dark">Convite a parceiros</span>
+    <h1>
+      Segurança como sistema.<br>
+      Gestão como <span class="accent">padrão.</span>
+    </h1>
+    <p>
+      A ONESecure é uma plataforma brasileira que estrutura segurança como
+      um processo contínuo de gestão. Convidamos integradores, MSPs e
+      consultorias a construir, juntos, a próxima camada de proteção do
+      Brasil corporativo.
+    </p>
+    <div class="hero-meta">
+      <div><span>Mercado-alvo</span><b>Corporate · Enterprise</b></div>
+      <div><span>Modelo</span><b>Co-selling · MSP · Whitelabel</b></div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║ 3.  INTRO — pergunta-âncora + parágrafo curto            ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <div class="block-intro">
+    <span class="tag">Por que existimos</span>
+    <h2 class="display">Ferramentas isoladas não resolvem.</h2>
+    <p class="lede">
+      O mercado opera com dezenas de soluções desconectadas, alertas sem
+      contexto e dependência operacional. <strong>Conectamos, organizamos
+      e damos contexto</strong> — para que segurança deixe de ser evento e
+      passe a ser operação contínua.
+    </p>
+  </div>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║ 4.  PILARES — três blocos da plataforma                  ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <div class="block-pillars">
+    <div class="pillar">
+      <div class="stripe"></div>
+      <div class="body-col">
+        <h3 class="h3">Monitoramento contínuo</h3>
+        <p class="lede">
+          Visibilidade unificada de endpoint, identidade e nuvem em tempo real.
+        </p>
+      </div>
+      <div class="num">01</div>
+    </div>
+    <div class="pillar">
+      <div class="stripe"></div>
+      <div class="body-col">
+        <h3 class="h3">Inteligência de ameaças</h3>
+        <p class="lede">
+          Correlação automática de sinais com contexto regional e setorial.
+        </p>
+      </div>
+      <div class="num">02</div>
+    </div>
+    <div class="pillar">
+      <div class="stripe"></div>
+      <div class="body-col">
+        <h3 class="h3">Resposta automatizada</h3>
+        <p class="lede">
+          Playbooks acionáveis, integração nativa com o SOC do parceiro.
+        </p>
+      </div>
+      <div class="num">03</div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║ 5.  ARQUITETURA DA MARCA — duas linhas                   ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <div class="block-arch">
+    <span class="tag">A quem servimos</span>
+    <h2 class="h2">Duas linhas, uma plataforma.</h2>
+    <div class="arch-grid">
+      <div class="arch-card">
+        <div class="label">Linha institucional</div>
+        <div class="name">Decisores e governança</div>
+        <div class="desc">Clareza, autoridade técnica e ROI mensurável para C-level.</div>
+        <div class="submark-row">
+          <span class="submark">Corporate</span>
+          <span class="submark">Enterprise</span>
+        </div>
+      </div>
+      <div class="arch-card exp">
+        <div class="label">Linha experiencial</div>
+        <div class="name">Comunidade e eventos</div>
+        <div class="desc">Engajamento, conteúdo técnico e presença em campo com parceiros.</div>
+        <div class="submark-row">
+          <span class="submark">Comunidade</span>
+          <span class="submark">Suri</span>
+          <span class="submark">Eventos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║ 5.  GRÁFICOS — escala da operação                        ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <div class="block-charts">
+    <span class="tag">Mercado · em números</span>
+    <h2 class="h2">Escala que justifica a operação.</h2>
+
+    <!-- ▸ Hero: área — eventos correlacionados / mês -->
+    <div class="chart-card">
+      <div class="chart-meta">
+        <div>
+          <div class="ml">Eventos correlacionados / mês</div>
+          <div class="mv">2,8 M <span class="md">+187 % · 12 m</span></div>
+        </div>
+      </div>
+      <svg viewBox="0 0 568 150" width="100%" height="110" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"  stop-color="#3280EF" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#3280EF" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <!-- gridlines -->
+        <line x1="0" x2="568" y1="37.5"  y2="37.5"  stroke="rgba(33,25,65,0.06)" stroke-dasharray="3 4"/>
+        <line x1="0" x2="568" y1="75"    y2="75"    stroke="rgba(33,25,65,0.06)" stroke-dasharray="3 4"/>
+        <line x1="0" x2="568" y1="112.5" y2="112.5" stroke="rgba(33,25,65,0.06)" stroke-dasharray="3 4"/>
+        <!-- area -->
+        <path d="M 0 150 L 0.0 115.0 L 51.6 107.5 L 103.3 105.0 L 154.9 100.0 L 206.5 92.5 L 258.2 85.0 L 309.8 75.0 L 361.5 62.5 L 413.1 50.0 L 464.7 35.0 L 516.4 22.5 L 568.0 10.0 L 568 150 Z" fill="url(#areaGrad)"/>
+        <!-- line -->
+        <path d="M 0.0 115.0 L 51.6 107.5 L 103.3 105.0 L 154.9 100.0 L 206.5 92.5 L 258.2 85.0 L 309.8 75.0 L 361.5 62.5 L 413.1 50.0 L 464.7 35.0 L 516.4 22.5 L 568.0 10.0" fill="none" stroke="#0132A5" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <!-- markers (every 3 + last) -->
+        <circle cx="0"     cy="115" r="3.5" fill="#fff" stroke="#0132A5" stroke-width="2"/>
+        <circle cx="154.9" cy="100" r="3.5" fill="#fff" stroke="#0132A5" stroke-width="2"/>
+        <circle cx="309.8" cy="75"  r="3.5" fill="#fff" stroke="#0132A5" stroke-width="2"/>
+        <circle cx="464.7" cy="35"  r="3.5" fill="#fff" stroke="#0132A5" stroke-width="2"/>
+        <circle cx="568"   cy="10"  r="4"   fill="#0132A5"/>
+      </svg>
+      <div class="chart-axis">
+        <span>Jul/24</span><span>Out</span><span>Jan/25</span><span>Abr</span><span>Jul</span><span>Out</span><span>Mai/26</span>
+      </div>
+    </div>
+
+    <!-- ▸ Dois gráficos em coluna dupla -->
+    <div class="chart-row">
+      <!-- Donut: setor -->
+      <div class="chart-card">
+        <div class="chart-meta">
+          <div>
+            <div class="ml">Clientes por setor</div>
+            <div class="mv" style="font-size:14px">312 organizações</div>
+          </div>
+        </div>
+        <div class="donut-wrap">
+          <svg viewBox="0 0 200 200">
+            <path d="M 100.00 22.00 A 78 78 0 0 1 153.39 156.86 L 135.60 137.91 A 52 52 0 0 0 100.00 48.00 Z" fill="#0132A5"/>
+            <path d="M 153.39 156.86 A 78 78 0 0 1 36.90 145.85 L 57.93 130.56 A 52 52 0 0 0 135.60 137.91 Z" fill="#3280EF"/>
+            <path d="M 36.90 145.85 A 78 78 0 0 1 31.65 62.42 L 54.43 74.95 A 52 52 0 0 0 57.93 130.56 Z" fill="#5540A7"/>
+            <path d="M 31.65 62.42 A 78 78 0 0 1 75.90 25.82 L 83.93 50.55 A 52 52 0 0 0 54.43 74.95 Z" fill="#A9C3FF"/>
+            <path d="M 75.90 25.82 A 78 78 0 0 1 100.00 22.00 L 100.00 48.00 A 52 52 0 0 0 83.93 50.55 Z" fill="#211941"/>
+          </svg>
+          <div class="center-label">
+            <div class="v">5</div>
+            <div class="l">setores</div>
+          </div>
+        </div>
+        <ul class="legend">
+          <li><span class="sw" style="background:#0132A5"></span>Indústria<span class="pct">38%</span></li>
+          <li><span class="sw" style="background:#3280EF"></span>Financeiro<span class="pct">27%</span></li>
+          <li><span class="sw" style="background:#5540A7"></span>Varejo<span class="pct">18%</span></li>
+          <li><span class="sw" style="background:#A9C3FF"></span>Saúde<span class="pct">12%</span></li>
+          <li><span class="sw" style="background:#211941"></span>Outros<span class="pct">5%</span></li>
+        </ul>
+      </div>
+
+      <!-- Bars: ARR projetado parceiro -->
+      <div class="chart-card">
+        <div class="chart-meta">
+          <div>
+            <div class="ml">ARR · projeção parceiro</div>
+            <div class="mv" style="font-size:14px">R$ 1,8 M · Y5</div>
+          </div>
+        </div>
+        <svg viewBox="0 0 264 162" width="100%" height="160">
+          <!-- gridlines -->
+          <line x1="0" x2="264" y1="58"  y2="58"  stroke="rgba(33,25,65,0.06)" stroke-dasharray="3 4"/>
+          <line x1="0" x2="264" y1="100" y2="100" stroke="rgba(33,25,65,0.06)" stroke-dasharray="3 4"/>
+          <line x1="0" x2="264" y1="142" y2="142" stroke="rgba(33,25,65,0.10)"/>
+          <!-- bars -->
+          <rect x="16"  y="129.4" width="32" height="12.6" rx="6" fill="#A9C3FF"/>
+          <rect x="66"  y="112.6" width="32" height="29.4" rx="6" fill="#3280EF"/>
+          <rect x="116" y="87.4"  width="32" height="54.6" rx="6" fill="#3280EF"/>
+          <rect x="166" y="58.0"  width="32" height="84.0" rx="6" fill="#3280EF"/>
+          <rect x="216" y="16.0"  width="32" height="126.0" rx="6" fill="#0132A5"/>
+          <!-- top values -->
+          <text x="32"  y="124" text-anchor="middle" font-family="Lexend, sans-serif" font-size="9" font-weight="500" fill="#211941">180k</text>
+          <text x="82"  y="107" text-anchor="middle" font-family="Lexend, sans-serif" font-size="9" font-weight="500" fill="#211941">420k</text>
+          <text x="132" y="82"  text-anchor="middle" font-family="Lexend, sans-serif" font-size="9" font-weight="500" fill="#211941">780k</text>
+          <text x="182" y="53"  text-anchor="middle" font-family="Lexend, sans-serif" font-size="9" font-weight="500" fill="#211941">1,2M</text>
+          <text x="232" y="11"  text-anchor="middle" font-family="Lexend, sans-serif" font-size="10" font-weight="700" fill="#0132A5">1,8M</text>
+        </svg>
+        <div class="chart-axis">
+          <span>Y1</span><span>Y2</span><span>Y3</span><span>Y4</span><span>Y5</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║ 6.  PORQUE SER PARCEIRO — quatro princípios (checks)     ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <div class="block-why">
+    <span class="tag">Por que ser parceiro</span>
+    <h2 class="h2">Quatro razões.</h2>
+
+    <div class="principle">
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg></div>
+      <div>
+        <div class="t1">Margem recorrente e previsível.</div>
+        <div class="t2">Modelo SaaS multi-anual com revenue-share em todas as renovações.</div>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg></div>
+      <div>
+        <div class="t1">Plataforma integrada, não mais uma ferramenta.</div>
+        <div class="t2">Substitui de 3 a 5 fornecedores no stack do cliente final.</div>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg></div>
+      <div>
+        <div class="t1">Capacitação técnica contínua.</div>
+        <div class="t2">Trilhas oficiais, certificações e suporte L3 dedicado ao parceiro.</div>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg></div>
+      <div>
+        <div class="t1">Co-marketing e geração de demanda.</div>
+        <div class="t2">Campanhas conjuntas, MDF e presença em eventos da comunidade.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║ 7.  CTA — agendar conversa                               ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <div class="block-cta">
+    <span class="pill on-dark">Próximos passos</span>
+    <h2 class="h2" style="margin-top:20px">Vamos construir segurança como padrão.</h2>
+    <p>
+      Trinta minutos. Apresentamos a plataforma, o modelo de parceria e
+      respondemos às suas perguntas. Sem compromisso.
+    </p>
+    <a class="btn" href="mailto:parcerias@onesecure.com.br?subject=Programa de Parcerias 2026">
+      Agendar conversa
+      <span class="arrow"></span>
+    </a>
+    <a class="btn btn-secondary" href="https://onesecure.com.br/parcerias">
+      Ver portal do parceiro
+    </a>
+  </div>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║ 8.  RODAPÉ — assinatura institucional                    ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <div class="block-foot">
+    <div class="foot-row">
+      <img src="assets/logo/onesecure-horizontal-negative.png" alt="ONESecure">
+      <div class="url">onesecure.com.br</div>
+    </div>
+    <p style="margin-bottom:18px;max-width:420px">
+      Workspace Security Platform.<br>
+      Visibilidade, controle e proteção em tempo real para operações críticas.
+    </p>
+    <div class="foot-bottom">
+      <span>© 2026 ONESecure · Programa de Parcerias</span>
+      <span>parcerias@onesecure.com.br</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="meta-note">
+  Infográfico em coluna única, 640 px — compatível com Gmail, Outlook,
+  Apple Mail. Para envio, inline-zar os estilos ou exportar como PNG único.
+</div>
+
+</body>
+</html>

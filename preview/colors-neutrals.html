@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ONESecure — Neutrals</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; width: 100%; }
+  .sw {
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    padding: 12px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(33,25,65,0.08);
+  }
+  .sw .name {
+    font-size: 11px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .sw .hex { font-family: ui-monospace, Menlo, monospace; font-size: 11px; }
+</style>
+</head>
+<body>
+  <div class="card is-vertical">
+    <div class="grid">
+      <div class="sw" style="background:#000000;color:#fff">
+        <div class="name">Ink</div><div class="hex">#000000</div>
+      </div>
+      <div class="sw" style="background:#020202;color:#fff">
+        <div class="name">Ink soft</div><div class="hex">#020202</div>
+      </div>
+      <div class="sw" style="background:#D9D9D9;color:#211941">
+        <div class="name">Neutral 200</div><div class="hex">#D9D9D9</div>
+      </div>
+      <div class="sw" style="background:#FFFFFF;color:#211941;box-shadow: inset 0 0 0 1px rgba(33,25,65,0.10), 0 4px 12px rgba(33,25,65,0.05)">
+        <div class="name">White</div><div class="hex">#FFFFFF</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

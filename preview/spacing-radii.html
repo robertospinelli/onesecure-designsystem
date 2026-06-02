@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ONESecure — Radii</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  .card { padding: 26px 24px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; width: 100%; }
+  .tile { aspect-ratio: 1/1; background: #0132A5; display: flex; flex-direction: column; justify-content: flex-end; padding: 10px; color: #fff; font-family: var(--os-font); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .tile span { font-family: ui-monospace, Menlo, monospace; font-size: 11px; opacity: 0.9; text-transform: none; letter-spacing: 0; }
+</style>
+</head>
+<body>
+  <div class="card is-vertical">
+    <div class="grid">
+      <div class="tile" style="border-radius:8px">SM<span>8 px</span></div>
+      <div class="tile" style="border-radius:12px">Input<span>12 px</span></div>
+      <div class="tile" style="border-radius:16px">Button<span>16 px</span></div>
+      <div class="tile" style="border-radius:32px">Card<span>32 px</span></div>
+    </div>
+  </div>
+</body>
+</html>

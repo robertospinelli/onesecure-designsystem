@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ONESecure — Slide deck</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: #000; }
+  body { overflow: hidden; }
+  /* Page chrome — the canonical 176-px header band */
+  .slide {
+    width: 100%; height: 100%;
+    position: relative; overflow: hidden;
+    color: var(--os-primary-dark);
+    font-family: var(--os-font);
+  }
+  /* === Background recipes ============================================ */
+  .bg-light  { background: #E6EDFF; }
+  .bg-royal  { background: #0132A5; color: #fff; }
+  .bg-indigo { background: #211941; color: #fff; }
+
+  .bg-light::before, .bg-light::after {
+    content: ""; position: absolute; border-radius: 50%;
+    background: #fff; opacity: 0.6; filter: blur(80px);
+    pointer-events: none;
+  }
+  .bg-light::before { width: 1393px; height: 1393px; top: -640px; right: -360px; }
+  .bg-light::after  { width: 1393px; height: 1393px; bottom: -640px; left: -360px; }
+
+  .bg-royal::before {
+    content: ""; position: absolute; inset: 0;
+    background: url("../assets/textures/world-halftone.png") center/cover;
+    mix-blend-mode: screen; opacity: 0.45;
+  }
+
+  .bg-indigo::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 78% 18%, rgba(85,64,167,0.85), transparent 55%);
+  }
+  .bg-indigo::after {
+    content: ""; position: absolute; inset: 0;
+    background: url("../assets/textures/grain-overlay-2.png") center/cover;
+    mix-blend-mode: overlay; opacity: 0.40; pointer-events: none;
+  }
+
+  /* === Header band ==================================================== */
+  .head {
+    position: absolute; top: 64px; left: 64px; right: 64px; z-index: 10;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .pill {
+    display: inline-flex; padding: 9px 24px; border-radius: 16px;
+    background: rgba(1,50,165,0.10); color: var(--os-primary);
+    font-size: 20px; line-height: 1.5;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.20);
+  }
+  .bg-royal .pill, .bg-indigo .pill {
+    background: rgba(255,255,255,0.12); color: #fff;
+  }
+
+  /* === Footer band ==================================================== */
+  .foot {
+    position: absolute; bottom: 56px; left: 64px; right: 64px; z-index: 10;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    font-size: 20px; letter-spacing: 0.08em; text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .foot .mark img { height: 56px; display: block; }
+
+  /* === Type helpers =================================================== */
+  .display1 { font-size: 96px; font-weight: 700; line-height: 1.05; letter-spacing: -0.015em; }
+  .display2 { font-size: 80px; font-weight: 700; line-height: 1.10; letter-spacing: -0.01em; }
+  .h1       { font-size: 64px; font-weight: 700; line-height: 1.15; letter-spacing: -0.005em; }
+  .h2       { font-size: 48px; font-weight: 700; line-height: 1.30; }
+  .body-lg  { font-size: 32px; font-weight: 400; line-height: 1.50; }
+  .body     { font-size: 30px; font-weight: 300; line-height: 1.55; }
+
+  /* === Main content slot ============================================== */
+  .body-slot {
+    position: absolute; left: 64px; right: 64px;
+    top: 240px; bottom: 160px;
+    display: flex; flex-direction: column; justify-content: center;
+    z-index: 2;
+  }
+
+  /* === Components ===================================================== */
+  .check-row { display: flex; gap: 24px; align-items: flex-start; margin-bottom: 32px; }
+  .check {
+    flex-shrink: 0; width: 56px; height: 56px; border-radius: 999px;
+    background: #0132A5; color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .bg-royal .check, .bg-indigo .check { background: #fff; color: #0132A5; }
+  .check svg { width: 28px; height: 28px; }
+  .check-row .principle .t1 { font-size: 36px; font-weight: 700; line-height: 1.2; }
+  .check-row .principle .t2 { font-size: 26px; font-weight: 300; line-height: 1.45; opacity: 0.85; margin-top: 8px; }
+
+  .color-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    width: 100%;
+  }
+  .color-cell {
+    aspect-ratio: 1/1; border-radius: 32px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 24px; color: #fff;
+    box-shadow: 0 8px 24px rgba(33,25,65,0.18);
+  }
+  .color-cell .n {
+    font-size: 20px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 400; opacity: 0.92;
+  }
+  .color-cell .h {
+    font-family: ui-monospace, Menlo, monospace; font-size: 22px; margin-top: 6px; opacity: 0.95;
+  }
+
+  /* === deck-stage page-break + scaling ================================= */
+  ::part(deck) { background: #000; }
+</style>
+<script type="application/json" id="speaker-notes">
+[
+  "Slide de abertura. Uso obrigatório do azul royal e mapa-múndi em halftone. Apenas wordmark e tagline.",
+  "Sumário ou agenda. Mantém o chrome institucional em fundo claro com bolas brancas atrás.",
+  "Statement slide — uma frase, um conceito. Sentence case, encerrado por ponto final.",
+  "Slide de princípios. Lista de bullets check-marcados, duas linhas por princípio: declarativa e justificativa.",
+  "Slide de cores. Mostre 4 cores por vez. Não combine institucional + experiencial na mesma página.",
+  "Divisor de seção. Indigo profundo, gradiente radial roxo, e grão por cima. Tag enorme + número do capítulo.",
+  "Encerramento. Domínio + ano + tagline em fundo royal. Sem CTAs adicionais."
+]
+</script>
+</head>
+<body>
+
+<deck-stage>
+  <!-- ============================================================ -->
+  <!-- 01 · Cover                                                   -->
+  <!-- ============================================================ -->
+  <section data-screen-label="01 Cover" class="slide bg-royal">
+    <div style="position:absolute;top:64px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;z-index:5">
+      <div class="pill">Brand Guidelines</div>
+      <div class="pill">Março · 2026</div>
+    </div>
+    <div style="position:absolute;left:64px;bottom:140px;z-index:5">
+      <img src="../assets/logo/onesecure-horizontal-negative.png" alt="ONESecure — Workspace Security Platform" style="height:200px;display:block">
+    </div>
+    <div style="position:absolute;left:64px;right:64px;bottom:56px;display:flex;justify-content:space-between;color:#fff;font-size:20px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.85;z-index:5">
+      <span>onesecure.com.br</span>
+      <span>v 1.0</span>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 02 · Section opener — light page                             -->
+  <!-- ============================================================ -->
+  <section data-screen-label="02 Intro" class="slide bg-light">
+    <div class="head">
+      <div class="pill">Introdução</div>
+      <div class="pill">Brand Guidelines</div>
+    </div>
+    <div class="body-slot">
+      <div class="display2" style="max-width:1600px">Construindo uma plataforma de confiança, escala e crescimento.</div>
+      <div class="body" style="margin-top:32px;max-width:1280px">
+        A ONESecure evolui com o ambiente, sustenta a maturidade e transforma segurança em processo contínuo de gestão — visibilidade, controle e proteção em tempo real para operações críticas.
+      </div>
+    </div>
+    <div class="foot">
+      <div class="mark"><img src="../assets/logo/onesecure-horizontal.png" alt="ONESecure"></div>
+      <span>onesecure.com.br</span>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 03 · Statement slide                                         -->
+  <!-- ============================================================ -->
+  <section data-screen-label="03 Claim" class="slide bg-light">
+    <div class="head">
+      <div class="pill">Tagline</div>
+      <div class="pill">Brand Guidelines</div>
+    </div>
+    <div class="body-slot" style="justify-content:center;text-align:left">
+      <div class="display1" style="max-width:1700px">
+        Segurança como sistema.<br>
+        Gestão como <span style="color:#0132A5">padrão.</span>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="mark"><img src="../assets/logo/onesecure-horizontal.png" alt="ONESecure"></div>
+      <span>onesecure.com.br</span>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 04 · Principles — checkmark list                             -->
+  <!-- ============================================================ -->
+  <section data-screen-label="04 Princípios" class="slide bg-light">
+    <div class="head">
+      <div class="pill">Princípios</div>
+      <div class="pill">Brand Guidelines</div>
+    </div>
+    <div class="body-slot">
+      <div class="h2" style="margin-bottom:48px">Os quatro princípios da marca.</div>
+      <div class="check-row">
+        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg></div>
+        <div class="principle">
+          <div class="t1">Segurança como sistema.</div>
+          <div class="t2">Segurança não é evento. É operação.</div>
+        </div>
+      </div>
+      <div class="check-row">
+        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg></div>
+        <div class="principle">
+          <div class="t1">Integração real.</div>
+          <div class="t2">Ferramentas isoladas não resolvem. Conectamos, organizamos e damos contexto.</div>
+        </div>
+      </div>
+      <div class="check-row">
+        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg></div>
+        <div class="principle">
+          <div class="t1">Segurança que acompanha o negócio.</div>
+          <div class="t2">Se não acompanha a operação, não serve.</div>
+        </div>
+      </div>
+      <div class="check-row" style="margin-bottom:0">
+        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg></div>
+        <div class="principle">
+          <div class="t1">Evolução com maturidade.</div>
+          <div class="t2">Evoluímos com direção.</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="mark"><img src="../assets/logo/onesecure-horizontal.png" alt="ONESecure"></div>
+      <span>onesecure.com.br</span>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 05 · Color palette                                           -->
+  <!-- ============================================================ -->
+  <section data-screen-label="05 Cores" class="slide bg-light">
+    <div class="head">
+      <div class="pill">Cores</div>
+      <div class="pill">Brand Guidelines</div>
+    </div>
+    <div class="body-slot">
+      <div class="h2" style="margin-bottom:48px">Cores da marca.</div>
+      <div class="color-grid">
+        <div class="color-cell" style="background:#0132A5">
+          <div class="n">Primary</div><div class="h">#0132A5</div>
+        </div>
+        <div class="color-cell" style="background:#211941">
+          <div class="n">Primary Dark</div><div class="h">#211941</div>
+        </div>
+        <div class="color-cell" style="background:#3280EF">
+          <div class="n">Primary Bright</div><div class="h">#3280EF</div>
+        </div>
+        <div class="color-cell" style="background:#E6EDFF;color:#211941;box-shadow:inset 0 0 0 2px rgba(33,25,65,0.10)">
+          <div class="n">Page BG</div><div class="h">#E6EDFF</div>
+        </div>
+      </div>
+      <div class="body" style="margin-top:40px;max-width:1280px">
+        Tons institucionais — mais sóbrios e profundos — sustentam autoridade. Cores de apoio aparecem apenas na linha experiencial.
+      </div>
+    </div>
+    <div class="foot">
+      <div class="mark"><img src="../assets/logo/onesecure-horizontal.png" alt="ONESecure"></div>
+      <span>onesecure.com.br</span>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 06 · Section divider — dark                                  -->
+  <!-- ============================================================ -->
+  <section data-screen-label="06 Divisor" class="slide bg-indigo">
+    <div class="head">
+      <div class="pill">Capítulo · 04</div>
+      <div class="pill">Brand Guidelines</div>
+    </div>
+    <div class="body-slot">
+      <div style="font-size:28px;letter-spacing:0.10em;text-transform:uppercase;opacity:0.7;margin-bottom:24px;font-weight:400">04 — Tipografia</div>
+      <div class="display1" style="max-width:1700px;color:#fff">A voz da marca em <span style="color:#BDFCE3">Lexend.</span></div>
+    </div>
+    <div class="foot" style="color:#fff">
+      <div class="mark"><img src="../assets/logo/onesecure-horizontal-negative.png" alt="ONESecure"></div>
+      <span>onesecure.com.br</span>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 07 · Closing — royal                                          -->
+  <!-- ============================================================ -->
+  <section data-screen-label="07 Closing" class="slide bg-royal">
+    <div class="head">
+      <div class="pill">Obrigado</div>
+      <div class="pill">2026</div>
+    </div>
+    <div class="body-slot" style="justify-content:flex-end;padding-bottom:40px">
+      <div style="font-size:96px;font-weight:700;line-height:1.1;letter-spacing:-0.015em;color:#fff;max-width:1500px">
+        Segurança como sistema.<br>Gestão como padrão.
+      </div>
+    </div>
+    <div class="foot" style="color:#fff">
+      <div class="mark"><img src="../assets/logo/onesecure-horizontal-negative.png" alt="ONESecure"></div>
+      <span>onesecure.com.br</span>
+    </div>
+  </section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+</body>
+</html>
